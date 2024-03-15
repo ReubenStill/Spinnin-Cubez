@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spinning Color-changing Cube</title>
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cube {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spin 5s linear infinite, changeColor 1s infinite;
+    }
+
+    .face {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      opacity: 0.8;
+    }
+
+    .front {
+      transform: translateZ(100px);
+      background: #3498db;
+    }
+
+    .back {
+      transform: rotateY(180deg) translateZ(100px);
+      background: #e74c3c;
+    }
+
+    .right {
+      transform: rotateY(90deg) translateZ(100px);
+      background: #f39c12;
+    }
+
+    .left {
+      transform: rotateY(-90deg) translateZ(100px);
+      background: #9b59b6;
+    }
+
+    .top {
+      transform: rotateX(90deg) translateZ(100px);
+      background: #2ecc71;
+    }
+
+    .bottom {
+      transform: rotateX(-90deg) translateZ(100px);
+      background: #1abc9c;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+
+      100% {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+    }
+
+    @keyframes changeColor {
+
+      0%,
+      100% {
+        opacity: 0.5;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cube">
+    <div class="face front"></div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+</body>
+
+</html>
